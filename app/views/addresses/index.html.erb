@@ -1,0 +1,24 @@
+<div class='simple-center'>
+<br>
+
+<h1>I'll make an API call. Pick an address below or add a new one.</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>State</th>
+  </tr>
+
+  <% @addresses.each do |address| %>
+    <tr>
+      <td><%= address.name %></td>
+      <td><%= address.name %></td>
+      <td><%= address.name %></td>
+      <td><%= address.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+</div>
