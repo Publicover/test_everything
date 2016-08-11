@@ -2,8 +2,6 @@
 |  <%= link_to "BACK TO ADDRESSES", addresses_path %>
 |  <%= link_to 'HOME', root_path %>  |
 <center>
-  <br>
-<p></p>
 
 <% full_location = "#{@address.number}+#{@address.street}+#{@address.city}+#{@address.state}" %>
 <% full_location.gsub!(/\s/,'+') %>
