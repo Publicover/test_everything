@@ -17,10 +17,14 @@
 
   <% @addresses.each do |address| %>
     <tr>
-      <td><%= address.name %></td>
-      <td><%= address.name %></td>
-      <td><%= address.name %></td>
-      <td><%= address.name %></td>
+      <td><%= address.number %></td>
+      <td><%= address.street %></td>
+      <td><%= address.city %></td>
+      <td><%= address.state %></td>
+      <td><%= link_to 'EDIT', edit_address_path(address) %></td>
+      <td><%= link_to 'DESTROY', address_path(address),
+              method: :delete,
+              data: { confirm: "OK, well, be careful, I guess" } %> </td>
     </tr>
   <% end %>
 </table>

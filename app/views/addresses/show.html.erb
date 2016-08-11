@@ -1,7 +1,36 @@
+<center>
+|  <%= link_to "BACK", addresses_path %>
+|  <%= link_to 'EDIT', edit_address_path %>
+|  <%= link_to 'HOME', root_path %>  |
+<center>
+  <br>
+</div>
+<p></p>
+
+<% full_location = "#{@address.number}+#{@address.street}+#{@address.city}+#{@address.state}" %>
+<% full_location.gsub!(/\s/,'+') %>
+<% location_geocode = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_location}") %>
+<% lat = location_geocode["results"][0]["geometry"]["location"]["lat"] %>
+<% lng = location_geocode["results"][0]["geometry"]["location"]["lng"] %>
+<% place_id = location_geocode["results"][0]["place_id"] %>
+<% location_map = "https://www.google.com/maps/embed/v1/place?q=place_id:#{place_id}&key=#{ENV["GOOGLE_MONSTER_MAPS_KEY"]}" %>
+
 <br>
 
 <div class="simple-center">
 
+
+<center>
+<h3>This map shows the the address you picked.</h3>
+<h3>It calls the Google map API to do that</h3>
+<iframe width="700" height="550" frameborder="0" style="border:0"
+  src= <%= location_map %>
+  allowfullscreen> </iframe>
+</div>
+<br>
+</center>
+
+<center>
 </p>
   <strong> Number </strong>
   <%= @address.number %>
@@ -22,8 +51,8 @@
   <%= @address.state %>
 </p>
 
+</center>
+
 <br>
 
-<%= link_to "BACK", addresses_path %>
-
-</div>
+<p></p>
