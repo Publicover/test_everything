@@ -1,12 +1,18 @@
+<center>
+|  <%= link_to 'HOME', root_path %>  |
+<center>
+
 <div class='simple-center'>
 <br>
 
-<h1>I'll make an API call. Pick an address below or add a new one.</h1>
+<h1>I'll make an API call.</h1>
+<h1>Click SHOW to see an address below or add a new one.</h1>
 
 <br>
 
 <center>
 
+<div class='skinny-table'>
 <table class="table table-bordered table-striped">
   <tr>
     <th>Number</th>
@@ -21,6 +27,7 @@
       <td><%= address.street %></td>
       <td><%= address.city %></td>
       <td><%= address.state %></td>
+      <td><%= link_to 'SHOW', address_path(address) %></td>
       <td><%= link_to 'EDIT', edit_address_path(address) %></td>
       <td><%= link_to 'DESTROY', address_path(address),
               method: :delete,
@@ -28,6 +35,8 @@
     </tr>
   <% end %>
 </table>
+
+</div>
 
 </center>
 
