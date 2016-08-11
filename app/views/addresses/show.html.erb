@@ -1,10 +1,8 @@
 <center>
-|  <%= link_to "BACK", addresses_path %>
-|  <%= link_to 'EDIT', edit_address_path %>
+|  <%= link_to "BACK TO ADDRESSES", addresses_path %>
 |  <%= link_to 'HOME', root_path %>  |
 <center>
   <br>
-</div>
 <p></p>
 
 <% full_location = "#{@address.number}+#{@address.street}+#{@address.city}+#{@address.state}" %>
@@ -50,6 +48,8 @@
   <strong> State </strong>
   <%= @address.state %>
 </p>
+
+|  <%= link_to 'EDIT THIS ADDRESS', edit_address_path %>  |
 
 </center>
 
