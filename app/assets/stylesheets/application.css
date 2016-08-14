@@ -6,6 +6,10 @@
  *= require_tree .
 */
 
+body {
+   padding-top: 20px;
+}
+
 .skinny-table {
   padding-left: 4%;
   padding-right: 4%;

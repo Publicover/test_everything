@@ -1,7 +1,8 @@
 class AddressesController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
   def index
-    @addresses = Address.all
+    @addresses = Address.order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -44,6 +45,18 @@ class AddressesController < ApplicationController
   end
 
   private
+
+    def sortable_columns
+      ["number", "street", "city", "state"]
+    end
+
+    def sort_column
+      sortable_columns.include?(params[:column]) ? params[:column] : "number"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
 
     def address_params
       params.require(:address).permit(:number, :street, :city, :state)

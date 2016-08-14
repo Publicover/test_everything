@@ -16,10 +16,10 @@
 <div class='skinny-table'>
 <table class="table table-bordered table-striped">
   <tr>
-    <th>Number</th>
-    <th>Street</th>
-    <th>City</th>
-    <th>State</th>
+    <th><%= sort_link "number"%></th>
+    <th><%= sort_link "street" %></th>
+    <th><%= sort_link "city" %></th>
+    <th><%= sort_link "state" %></th>
   </tr>
 
   <% @addresses.each do |address| %>
