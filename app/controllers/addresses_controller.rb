@@ -40,7 +40,7 @@ class AddressesController < ApplicationController
     @address = Address.find(params[:id])
     @address.destroy
 
-    redirect_to address_index_path
+    redirect_to addresses_path
   end
 
   private
