@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :addresses
 
   get 'addresses/index'
-
-  resources :addresses
 
   root 'dashboards#index'
 

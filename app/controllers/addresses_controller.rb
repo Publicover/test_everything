@@ -29,7 +29,7 @@ class AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
 
-    if @address.save
+    if @address.update(address_params)
       redirect_to @address
     else
       render 'edit'
